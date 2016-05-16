@@ -2,6 +2,9 @@ const Koa = require('koa');
 const app = new Koa();
 const config = require('./config/');
 
+const dotenv = require('dotenv');
+dotenv.config();
+
 // General
 const bodyParser = require('koa-bodyparser');
 const convert = require('koa-convert');
