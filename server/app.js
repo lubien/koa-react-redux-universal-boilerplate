@@ -4,7 +4,15 @@ const config = require('./config/');
 
 // General
 const bodyParser = require('koa-bodyparser');
+const convert = require('koa-convert');
+const session = require('koa-generic-session');
+const MongoStore = require('koa-generic-session-mongo');
+
 app.use(bodyParser());
+app.keys = [config.SESSIONID];
+app.use(convert(session({
+  store: new MongoStore()
+})));
 
 // Routes
 const routes = require('./routes/');
