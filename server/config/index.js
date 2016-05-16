@@ -14,7 +14,9 @@ const config = {
 
 const specific = {};
 
-specific.development = {};
+specific.development = {
+  'MONGO_URL': 'mongodb://localhost:27017/koa-react-boilerplate'
+};
 specific.production = {};
 
 module.exports = Object.assign(config, specific[ENV]);
