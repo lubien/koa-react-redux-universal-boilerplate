@@ -7,7 +7,6 @@ app.use(bodyParser());
 
 const routes = require('./routes/');
 for (let route in routes) {
-  console.log(route);
   if (routes.hasOwnProperty(route)) {
     app
       .use(routes[route].middleware())
