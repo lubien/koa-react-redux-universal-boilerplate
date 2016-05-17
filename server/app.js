@@ -16,6 +16,13 @@ app.use(convert(session({
   store: new MongoStore()
 })));
 
+// Passport
+const passport = require('./lib/passport');
+const loggedInMiddleware = require('./lib/logged-in-middleware');
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(loggedInMiddleware());
+
 // Routes
 const routes = require('./routes/');
 for (let route in routes) {
