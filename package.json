@@ -12,8 +12,15 @@
     "react",
     "boilerplate"
   ],
-  "author": "lubien <lubien1996@gmail.com> (lubien.me)",
+  "author": "lubien <lubien1996@gmail.com> (http://lubien.me)",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lubien/koa-react-boilerplate.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lubien/koa-react-boilerplate/issues"
+  },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
     "eslint": "^2.10.0",
