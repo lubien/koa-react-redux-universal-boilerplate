@@ -38,10 +38,6 @@ const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'DB Error:'));
 app.context.db = db;
 
-const {
-  PORT, HOST
-} = config;
-
-app.listen(PORT, HOST, () => {
-  console.log(`Server listening at ${HOST}:${PORT}`);
+app.listen(config.PORT, config.HOST, () => {
+  console.log(`Server listening at ${config.HOST}:${config.PORT}`);
 });
