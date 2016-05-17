@@ -25,13 +25,11 @@ app.use(loggedInMiddleware());
 
 // Routes
 const routes = require('./routes/');
-for (let route in routes) {
-  if (routes.hasOwnProperty(route)) {
-    app
-      .use(routes[route].middleware())
-      .use(routes[route].allowedMethods());
-  }
-}
+routes.map(
+  route => app
+    .use(route.middleware())
+    .use(route.allowedMethods())
+);
 
 // Mongoose
 const mongoose = require('mongoose');
