@@ -1,7 +1,7 @@
 import React from 'react';
 
 const AboutPage = () => (
-  <div>Inside About</div>
+  <div>Inside Aboutaaasas</div>
 );
 
 export default AboutPage;
