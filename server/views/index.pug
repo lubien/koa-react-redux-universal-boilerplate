@@ -6,4 +6,5 @@ html
     link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.26/css/bulma.min.css')
   body
     #app!= rendered
-    script(src='http://localhost:8080/bundle.js')
+    each script in scripts
+      script(src=script)
