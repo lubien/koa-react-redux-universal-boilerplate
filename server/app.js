@@ -3,6 +3,7 @@ dotenv.config();
 const Koa = require('koa');
 const app = new Koa();
 const config = require('./config/');
+const path = require('path');
 
 // General
 const bodyParser = require('koa-bodyparser');
@@ -22,6 +23,12 @@ const loggedInMiddleware = require('./lib/logged-in-middleware');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(loggedInMiddleware());
+
+// Views
+const views = require('koa-views');
+app.use(views(path.join(__dirname, 'views/'), {
+  extension: 'pug',
+}));
 
 // Routes
 const routes = require('./routes/');

@@ -1,0 +1,9 @@
+html
+  head
+    | !{head.title.toString()}
+    | !{head.meta.toString()}
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/bulma/0.0.26/css/bulma.min.css')
+  body
+    #app!= rendered
+    script(src='http://localhost:8080/bundle.js')
