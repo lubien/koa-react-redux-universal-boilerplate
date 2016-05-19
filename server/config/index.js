@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const {
   ENV = 'development',
   PORT = 3000,
