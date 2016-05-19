@@ -1,7 +1,7 @@
-const passport = require('koa-passport');
-const { Strategy: GithubStategy } = require('passport-github');
-const config = require('../config');
-const User = require('../models/User');
+import passport from 'koa-passport';
+import { Strategy as GithubStategy } from 'passport-github';
+import config from '../config';
+import User from '../models/User';
 
 async function maybeAddUserToDatabase(serialized) {
   const foundUser = await User.findOne({ id: serialized.id });

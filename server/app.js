@@ -1,13 +1,13 @@
-const Koa = require('koa');
+import Koa from 'koa';
 const app = new Koa();
-const config = require('./config/');
-const path = require('path');
+import config from './config/';
+import path from 'path';
 
 // General
-const bodyParser = require('koa-bodyparser');
-const convert = require('koa-convert');
-const session = require('koa-generic-session');
-const MongoStore = require('koa-generic-session-mongo');
+import bodyParser from 'koa-bodyparser';
+import convert from 'koa-convert';
+import session from 'koa-generic-session';
+import MongoStore from 'koa-generic-session-mongo';
 
 app.use(bodyParser());
 app.keys = [config.SESSIONID];
@@ -16,20 +16,20 @@ app.use(convert(session({
 })));
 
 // Passport
-const passport = require('./lib/passport');
-const loggedInMiddleware = require('./lib/logged-in-middleware');
+import passport from './lib/passport';
+import loggedInMiddleware from './lib/logged-in-middleware';
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(loggedInMiddleware());
 
 // Views
-const views = require('koa-views');
+import views from 'koa-views';
 app.use(views(path.join(__dirname, 'views/'), {
   extension: 'pug',
 }));
 
 // Routes
-const routes = require('./routes/');
+import routes from './routes/';
 routes.map(
   route => app
     .use(route.middleware())
@@ -37,7 +37,7 @@ routes.map(
 );
 
 // Mongoose
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 mongoose.connect(config.MONGO_URL);
 const db = mongoose.connection;
 db.on('error', console.log.bind(console, 'DB Error:'));

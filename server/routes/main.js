@@ -1,6 +1,6 @@
-const router = require('koa-router');
+import router from 'koa-router';
 const routes = router();
-const controller = require('../controllers/main');
+import controller from '../controllers/main';
 
 routes.get('*', controller.index);
 

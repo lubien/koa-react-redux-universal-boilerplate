@@ -1,6 +1,6 @@
-const router = require('koa-router');
+import router from 'koa-router';
 const routes = router();
-const controller = require('../controllers/auth');
+import controller from '../controllers/auth';
 
 routes.get('/login', controller.login);
 routes.get('/auth/github/callback', controller.githubCallback);

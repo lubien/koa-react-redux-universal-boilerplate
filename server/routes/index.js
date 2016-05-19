@@ -1,5 +1,5 @@
-const mainRoutes = require('./main');
-const authRoutes = require('./auth');
+import mainRoutes from './main';
+import authRoutes from './auth';
 
 module.exports = [
   authRoutes,

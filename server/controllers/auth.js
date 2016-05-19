@@ -1,4 +1,4 @@
-const passport = require('../lib/passport');
+import passport from '../lib/passport';
 
 exports.login = passport.authenticate('github');
 
