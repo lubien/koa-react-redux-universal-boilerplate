@@ -4,10 +4,10 @@ exports.login = passport.authenticate('github');
 
 exports.githubCallback = passport.authenticate('github', {
   successRedirect: '/',
-  failureRedirect: '/'
+  failureRedirect: '/',
 });
 
-exports.logout = function logoutAction (ctx) {
+exports.logout = function logoutAction(ctx) {
   ctx.logout();
   ctx.redirect('/');
 };

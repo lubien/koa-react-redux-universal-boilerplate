@@ -3,5 +3,5 @@ const authRoutes = require('./auth');
 
 module.exports = [
   mainRoutes,
-  authRoutes
+  authRoutes,
 ];

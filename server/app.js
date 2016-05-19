@@ -13,7 +13,7 @@ const MongoStore = require('koa-generic-session-mongo');
 app.use(bodyParser());
 app.keys = [config.SESSIONID];
 app.use(convert(session({
-  store: new MongoStore()
+  store: new MongoStore(),
 })));
 
 // Passport
