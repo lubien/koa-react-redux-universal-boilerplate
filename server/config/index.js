@@ -7,6 +7,7 @@ const {
   HOST = 'localhost',
   SESSIONID = 'koa:sess',
   BASE_URL = `http://${HOST}:${PORT}`,
+  WEBPACK_BASE_URL = `http://${HOST}:8080`,
   GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET,
 } = process.env;
 
@@ -21,6 +22,7 @@ const config = {
 const specific = {};
 
 specific.development = {
+  WEBPACK_BASE_URL,
   MONGO_URL: 'mongodb://localhost:27017/koa-react-boilerplate',
   GITHUB_CALLBACK_URL: `${BASE_URL}/auth/github/callback`,
 };
