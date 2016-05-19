@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon --exec babel-node server/app.js",
     "build": "webpack --config ./client/webpack.development.js",
-    "dev-server": "webpack-dev-server --content-base public --config ./client/webpack.development.js --hot --progress --colors --inline",
+    "dev-server": "webpack-dev-server --config ./client/webpack.development.js --progress --colors --inline",
     "lint": "eslint ./server/app.js"
   },
   "keywords": [
