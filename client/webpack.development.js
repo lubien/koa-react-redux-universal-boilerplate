@@ -1,12 +1,30 @@
 const webpack = require('webpack');
 const path = require('path');
+const config = require('../server/config');
+
+const entry = [
+  path.join(__dirname, './entry.js'),
+];
+
+const output = {
+  path: path.join(__dirname, '../public/scripts/'),
+  filename: 'bundle.js',
+};
+
+const plugins = [];
+
+if (config.is.dev) {
+  entry.unshift('webpack/hot/only-dev-server');
+  entry.unshift(`webpack-dev-server/client?${config.WEBPACK_BASE_URL}/`);
+  console.log(entry);
+
+  output.publicPath = `${config.WEBPACK_BASE_URL}/`;
+
+  plugins.push(new webpack.HotModuleReplacementPlugin());
+}
 
 module.exports = {
-  entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
-    path.join(__dirname, './entry.js'),
-  ],
+  entry, plugins, output,
   module: {
     loaders: [
       {
@@ -18,14 +36,6 @@ module.exports = {
       },
     ],
   },
-  output: {
-    path: path.join(__dirname, '../public/scripts/'),
-    filename: 'bundle.js',
-    publicPath: 'http://localhost:8080/',
-  },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-  ],
   resolve: {
     extensions: ['', '.js', '.jsx'],
   },
