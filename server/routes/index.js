@@ -1,7 +1,7 @@
-import mainRoutes from './main';
+import reactRoute from './react';
 import authRoutes from './auth';
 
 module.exports = [
   authRoutes,
-  mainRoutes,
+  reactRoute,
 ];
