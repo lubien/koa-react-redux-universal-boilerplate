@@ -22,6 +22,13 @@ if (config.is.dev) {
   plugins.push(new webpack.HotModuleReplacementPlugin());
 }
 
+if (config.is.prod) {
+  plugins.push(new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.DefinePlugin({
+    'process.env.NODE_ENV': '"production"',
+  }));
+}
+
 module.exports = {
   entry, plugins, output,
   module: {
