@@ -4,7 +4,7 @@
   "description": "Koa+React boilerplate",
   "main": "server/app.js",
   "scripts": {
-    "start": "nodemon -e js,pug,json,jsx --watch client --watch server --exec babel-node server/app.js",
+    "start": "nodemon -e js,pug,json,jsx --watch client --watch server --exec babel-node server/app.js --debug",
     "build": "webpack --config ./client/webpack.js",
     "dev-server": "webpack-dev-server --config ./client/webpack.js --progress --colors --inline",
     "lint": "eslint ./server/app.js"
