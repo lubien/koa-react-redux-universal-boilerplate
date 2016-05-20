@@ -4,9 +4,13 @@
   "description": "Koa+React boilerplate",
   "main": "server/app.js",
   "scripts": {
-    "start": "nodemon -e js,pug,json,jsx --watch client --watch server --exec babel-node server/app.js",
-    "build": "webpack --config ./client/webpack.js",
+    "start": "nodemon -e js,pug,json,jsx --watch client --watch server --exec cross-env NODE_ENV=development babel-node server/app.js",
+    "start-prod": "npm run build && cross-env NODE_ENV=production node ./build/app.js",
     "dev-server": "webpack-dev-server --config ./client/webpack.js --progress --colors --inline",
+    "build": "npm run clean-build && npm run build-server",
+    "build-server": "babel server --out-dir build",
+    "build-client": "webpack --config ./client/webpack.js",
+    "clean-build": "trash build/ && mkdir build && ncp ./server/views/ ./build/views/",
     "lint": "eslint ./server/app.js"
   },
   "keywords": [
@@ -36,9 +40,11 @@
     "babel-cli": "^6.8.0",
     "babel-core": "^6.8.0",
     "babel-loader": "^6.2.4",
+    "babel-polyfill": "^6.9.0",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-2": "^6.5.0",
+    "cross-env": "^1.0.7",
     "dotenv": "^2.0.0",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
@@ -52,6 +58,7 @@
     "koa-static2": "^0.1.1",
     "koa-views": "^5.0.1",
     "mongoose": "^4.4.17",
+    "ncp": "^2.0.0",
     "passport-github": "^1.1.0",
     "pug": "^2.0.0-alpha7",
     "react": "^15.0.2",
@@ -64,6 +71,7 @@
     "redux": "^3.5.2",
     "redux-immutable": "^3.0.6",
     "redux-thunk": "^2.1.0",
+    "trash-cli": "^1.3.0",
     "webpack": "^1.13.0"
   }
 }
