@@ -16,7 +16,6 @@ const plugins = [];
 if (config.is.dev) {
   entry.unshift('webpack/hot/only-dev-server');
   entry.unshift(`webpack-dev-server/client?${config.WEBPACK_BASE_URL}/`);
-  console.log(entry);
 
   output.publicPath = `${config.WEBPACK_BASE_URL}/`;
 
