@@ -49,6 +49,7 @@
     "koa-generic-session-mongo": "^0.2.5",
     "koa-passport": "^2.1.1",
     "koa-router": "^7.0.1",
+    "koa-static2": "^0.1.1",
     "koa-views": "^5.0.1",
     "mongoose": "^4.4.17",
     "passport-github": "^1.1.0",

@@ -1,3 +1,5 @@
+import 'babel-core/register';
+import 'babel-polyfill';
 import Koa from 'koa';
 const app = new Koa();
 import config from './config/';
@@ -5,11 +7,13 @@ import path from 'path';
 
 // General
 import bodyParser from 'koa-bodyparser';
+import serve from 'koa-static2';
 import convert from 'koa-convert';
 import session from 'koa-generic-session';
 import MongoStore from 'koa-generic-session-mongo';
 
 app.use(bodyParser());
+app.use(serve('public', path.join(__dirname, '../public')));
 app.keys = [config.SESSIONID];
 app.use(convert(session({
   store: new MongoStore(),
