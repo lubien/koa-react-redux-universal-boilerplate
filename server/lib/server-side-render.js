@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { match, RouterContext } from 'react-router';
 import routes from '../../client/routes';
 
-export default async function serverSideRender(url) {
+export default function serverSideRender(url) {
   return new Promise((fulfill, reject) => {
     match({
       routes, location: url,
