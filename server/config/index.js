@@ -2,20 +2,23 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const {
-  ENV = 'development',
+  NODE_ENV = 'development',
   PORT = 3000,
   HOST = 'localhost',
   SESSIONID = 'koa:sess',
   BASE_URL = `http://${HOST}:${PORT}`,
   WEBPACK_BASE_URL = `http://${HOST}:8080`,
+  MONGO_URL = 'mongodb://localhost:27017/koa-react-boilerplate',
   GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET,
 } = process.env;
 
 const config = {
-  ENV, HOST, PORT, SESSIONID, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, BASE_URL,
+  NODE_ENV, HOST, PORT, SESSIONID, GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET, BASE_URL,
+  MONGO_URL,
+  GITHUB_CALLBACK_URL: `${BASE_URL}/auth/github/callback`,
   is: {
-    dev: ENV === 'development',
-    prod: ENV === 'production',
+    dev: NODE_ENV === 'development',
+    prod: NODE_ENV === 'production',
   },
 };
 
@@ -23,9 +26,7 @@ const specific = {};
 
 specific.development = {
   WEBPACK_BASE_URL,
-  MONGO_URL: 'mongodb://localhost:27017/koa-react-boilerplate',
-  GITHUB_CALLBACK_URL: `${BASE_URL}/auth/github/callback`,
 };
 specific.production = {};
 
-module.exports = Object.assign(config, specific[ENV]);
+module.exports = Object.assign(config, specific[NODE_ENV]);
