@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import store from '../store';
 // TODO: figure how to do this w/o using store directly
 
-const RequireAuth = (Component) => () => {
+const requireAuth = (Component) => () => {
   if (store.getState().get('user').get('loggedIn')) {
     return (<Component />);
   }
@@ -10,8 +10,8 @@ const RequireAuth = (Component) => () => {
   return (<div>Error 401: Unauthorized.</div>);
 };
 
-RequireAuth.propTypes = {
+requireAuth.propTypes = {
   Component: PropTypes.node.isRequired,
 };
 
-export default RequireAuth;
+export default requireAuth;
