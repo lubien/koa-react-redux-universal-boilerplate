@@ -5,11 +5,15 @@ import { Provider } from 'react-redux';
 import store from './store';
 import routes from './routes';
 
+import { getLoggedInUser } from './actions/user';
+
 if (!module || module && !module.parent) {
   match({
     routes, history: browserHistory,
   }, (err, redirectLocation, renderProps) => {
     if (err) throw err;
+
+    store.dispatch(getLoggedInUser());
 
     ReactDOM.render(
       <Provider store={store}>
