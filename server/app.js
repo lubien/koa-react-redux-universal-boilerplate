@@ -5,6 +5,13 @@ const app = new Koa();
 import config from './config/';
 import path from 'path';
 
+// Error handler for production
+if (config.is.prod) {
+  app.on('error', err => {
+    console.error('Server Error:', err);
+  });
+}
+
 // General
 import bodyParser from 'koa-bodyparser';
 import serve from 'koa-static2';
