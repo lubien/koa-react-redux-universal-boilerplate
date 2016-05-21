@@ -12,6 +12,10 @@ const Navbar = ({ user }) => {
     <Link to="/about">
       About
     </Link>
+  ), (
+    <Link to="/protected">
+      Protected
+    </Link>
   )];
 
   if (!user.get('loggedIn')) {

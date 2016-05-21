@@ -1,6 +1,7 @@
 import App from './containers/App';
 import IndexPage from './pages/Index';
 import AboutPage from './pages/About';
+import ProtectedPage from './pages/Protected';
 
 const routes = {
   path: '/',
@@ -8,6 +9,7 @@ const routes = {
   indexRoute: { component: IndexPage },
   childRoutes: [
     { path: 'about', component: AboutPage },
+    { path: 'protected', component: ProtectedPage },
   ],
 };
 
