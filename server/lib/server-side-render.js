@@ -14,20 +14,22 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
       routes, location: url,
     }, (err, redirectLocation, renderProps) => {
       if (err) reject(err);
+      else if (!renderProps) reject(new Error('No renderProps'));
+      else {
+        store.dispatch({
+          type: SET_LOGGED_IN_USER,
+          user,
+        });
 
-      store.dispatch({
-        type: SET_LOGGED_IN_USER,
-        user,
-      });
+        const rendered = ReactDOM.renderToString(
+          <Provider store={store}>
+            <RouterContext {...renderProps} />
+          </Provider>
+        );
+        const head = Helmet.rewind();
 
-      const rendered = ReactDOM.renderToString(
-        <Provider store={store}>
-          <RouterContext {...renderProps} />
-        </Provider>
-      );
-      const head = Helmet.rewind();
-
-      fulfill({ rendered, head });
+        fulfill({ rendered, head });
+      }
     });
   });
 }
