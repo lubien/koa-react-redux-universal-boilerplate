@@ -23,7 +23,11 @@ if (config.is.dev) {
 }
 
 if (config.is.prod) {
-  plugins.push(new webpack.optimize.UglifyJsPlugin());
+  plugins.push(new webpack.optimize.UglifyJsPlugin({
+    compress: {
+      warnings: false,
+    },
+  }));
   plugins.push(new webpack.DefinePlugin({
     'process.env.NODE_ENV': '"production"',
   }));
@@ -38,6 +42,7 @@ module.exports = {
         loader: 'babel',
         query: {
           presets: ['react', 'es2015'],
+          compact: false,
         },
       },
     ],
