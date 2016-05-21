@@ -5,7 +5,8 @@ import { Provider } from 'react-redux';
 import store from './store';
 import routes from './routes';
 
-import { getLoggedInUser } from './actions/user';
+import { SET_LOGGED_IN_USER } from './constants/user';
+import api from './lib/api';
 
 if (!module || module && !module.parent) {
   match({
@@ -13,13 +14,19 @@ if (!module || module && !module.parent) {
   }, (err, redirectLocation, renderProps) => {
     if (err) throw err;
 
-    store.dispatch(getLoggedInUser());
+    api.users.loggedIn()
+      .then(user => {
+        store.dispatch({
+          type: SET_LOGGED_IN_USER,
+          user,
+        });
 
-    ReactDOM.render(
-      <Provider store={store}>
-        <Router {...renderProps} />
-      </Provider>,
-      document.getElementById('app')
-    );
+        ReactDOM.render(
+          <Provider store={store}>
+            <Router {...renderProps} />
+          </Provider>,
+          document.getElementById('app')
+        );
+      });
   });
 }
