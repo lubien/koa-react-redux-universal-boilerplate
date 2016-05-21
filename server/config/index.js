@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
-dotenv.config();
+dotenv.config({ silent: true });
 
 const {
   NODE_ENV = 'development',
