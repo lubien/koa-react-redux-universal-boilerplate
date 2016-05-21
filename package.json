@@ -27,6 +27,9 @@
   "bugs": {
     "url": "https://github.com/lubien/koa-react-boilerplate/issues"
   },
+  "engines": {
+    "node": "6.1.0"
+  },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
     "eslint": "^2.10.0",
