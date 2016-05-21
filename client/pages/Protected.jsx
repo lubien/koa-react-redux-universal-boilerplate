@@ -1,5 +1,5 @@
 import React from 'react';
-import requireAuth from '../lib/RequireAuth';
+import requireAuth from '../lib/require-auth';
 
 const ProtectedPage = () => (
   <div>Inside Protected</div>
