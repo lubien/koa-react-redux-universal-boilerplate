@@ -4,7 +4,7 @@ dotenv.config({ silent: true });
 const {
   NODE_ENV = 'development',
   PORT = 3000,
-  HOST = 'localhost',
+  HOST = '0.0.0.0',
   SESSIONID = 'koa:sess',
   BASE_URL = `http://${HOST}:${PORT}`,
   WEBPACK_BASE_URL = `http://${HOST}:8080`,
