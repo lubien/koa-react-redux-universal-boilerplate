@@ -23,7 +23,9 @@ app.use(bodyParser());
 app.use(serve('public', path.join(__dirname, '../public')));
 app.keys = [config.SESSIONID];
 app.use(convert(session({
-  store: new MongoStore(),
+  store: new MongoStore({
+    url: config.MONGO_URL,
+  }),
 })));
 
 // Passport
