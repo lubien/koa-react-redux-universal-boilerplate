@@ -4,7 +4,8 @@
   "description": "Koa+React boilerplate",
   "main": "server/app.js",
   "scripts": {
-    "start": "npm run build && cross-env NODE_ENV=production node ./build/app.js",
+    "start": "cross-env NODE_ENV=production node ./build/app.js",
+    "postinstall": "npm run build",
     "dev-server": "nodemon -e js,pug,json,jsx --watch client --watch server --exec cross-env NODE_ENV=development babel-node server/app.js",
     "dev-client": "webpack-dev-server --config ./client/webpack.js --progress --colors --inline",
     "build": "npm run clean-build && npm run build-server && npm run build-client",
