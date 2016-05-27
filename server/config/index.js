@@ -3,11 +3,13 @@ dotenv.config({ silent: true });
 
 const {
   NODE_ENV = 'development',
+  SUPPORT_HTTPS = false,
+  PROTOCOL_PREFIX = SUPPORT_HTTPS ? 'https' : 'http',
   PORT = 3000,
   HOST = '0.0.0.0',
   SESSIONID = 'koa:sess',
-  BASE_URL = `http://${HOST}:${PORT}`,
-  WEBPACK_BASE_URL = `http://${HOST}:8080`,
+  BASE_URL = `${PROTOCOL_PREFIX}://${HOST}:${PORT}`,
+  WEBPACK_BASE_URL = `${PROTOCOL_PREFIX}://${HOST}:8080`,
   MONGO_URL = 'mongodb://localhost:27017/koa-react-boilerplate',
   GITHUB_CLIENT_ID, GITHUB_CLIENT_SECRET,
 } = process.env;
