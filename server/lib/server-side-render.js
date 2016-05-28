@@ -14,8 +14,11 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
       routes, location: url,
     }, (err, redirectLocation, renderProps) => {
       if (err) reject(err);
-      else if (!renderProps) reject(new Error('No renderProps'));
-      else {
+      else if (!renderProps) {
+        reject({ code: 404, msg: "Page doesn't exist" });
+      } else if (renderProps.location.pathname === '/401') {
+        reject({ code: 401, msg: 'Unauthorized' });
+      } else {
         store.dispatch({
           type: SET_LOGGED_IN_USER,
           user,
