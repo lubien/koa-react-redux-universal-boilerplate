@@ -27,8 +27,9 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
           </Provider>
         );
         const head = Helmet.rewind();
+        const state = store.getState();
 
-        fulfill({ rendered, head, state: store.getState() });
+        fulfill({ rendered, head, state });
       }
     });
   });
