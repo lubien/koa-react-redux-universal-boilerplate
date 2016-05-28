@@ -47,12 +47,12 @@ const Navbar = ({ user }) => {
       </div>
 
       <div className="nav-center">
-        <a className="nav-item" href="https://github.com/lubien/koa-react-boilerplate">
+        <a className="nav-item" href="https://github.com/lubien/koa-react-boilerplate" target="_blank">
           <span className="icon">
             <i className="fa fa-github"></i>
           </span>
         </a>
-        <a className="nav-item" href="https://twitter.com/@joao_lubien">
+        <a className="nav-item" href="https://twitter.com/@joao_lubien" target="_blank">
           <span className="icon">
             <i className="fa fa-twitter"></i>
           </span>
