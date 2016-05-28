@@ -6,7 +6,7 @@ const {
   SUPPORT_HTTPS = false,
   PROTOCOL_PREFIX = SUPPORT_HTTPS ? 'https' : 'http',
   PORT = 3000,
-  HOST = '0.0.0.0',
+  HOST = NODE_ENV === 'development' ? 'localhost' : '0.0.0.0',
   SESSIONID = 'koa:sess',
   BASE_URL = `${PROTOCOL_PREFIX}://${HOST}:${PORT}`,
   WEBPACK_BASE_URL = `${PROTOCOL_PREFIX}://${HOST}:8080`,
