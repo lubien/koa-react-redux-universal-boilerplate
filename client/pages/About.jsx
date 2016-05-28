@@ -1,7 +1,14 @@
 import React from 'react';
 
+import Helmet from 'react-helmet';
+
 const AboutPage = () => (
-  <div>Inside About</div>
+  <div>
+    <Helmet
+      title="About"
+    />
+    Inside About
+  </div>
 );
 
 export default AboutPage;

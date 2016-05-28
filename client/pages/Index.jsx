@@ -1,7 +1,14 @@
 import React from 'react';
 
+import Helmet from 'react-helmet';
+
 const IndexPage = () => (
-  <div>Inside Index</div>
+  <div>
+    <Helmet
+      title="Index"
+    />
+    Inside Index
+  </div>
 );
 
 export default IndexPage;

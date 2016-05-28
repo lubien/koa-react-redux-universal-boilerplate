@@ -10,7 +10,6 @@ const App = ({ children, user }) => (
   <div>
     <Helmet
       titleTemplate="%s - Koa React Boilerplate"
-      title="Index"
     />
     <Navbar user={user} />
     <div className="container">
