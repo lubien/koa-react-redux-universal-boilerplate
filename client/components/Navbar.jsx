@@ -1,5 +1,4 @@
-import React from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
+import React, { PropTypes } from 'react';
 
 import { Link } from 'react-router';
 
@@ -18,7 +17,7 @@ const Navbar = ({ user }) => {
     </Link>
   )];
 
-  if (!user.get('loggedIn')) {
+  if (!user.loggedIn) {
     rightNavItems.push((
       <a className="button" href="/login">
         <span className="icon">
@@ -29,7 +28,7 @@ const Navbar = ({ user }) => {
     ));
   } else {
     rightNavItems.push((
-      <span>Hello, {user.get('username')}</span>
+      <span>Hello, {user.username}</span>
     ));
     rightNavItems.push((
       <a className="button" href="/logout">
@@ -77,7 +76,7 @@ const Navbar = ({ user }) => {
 };
 
 Navbar.propTypes = {
-  user: ImmutablePropTypes.map.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default Navbar;

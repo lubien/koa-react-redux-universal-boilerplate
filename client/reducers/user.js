@@ -1,11 +1,10 @@
 import api from '../lib/api';
-import { fromJS } from 'immutable';
 
 export const SET_LOGGED_IN_USER = 'app/user/SET_LOGGED_IN_USER';
 
-const INITIAL_STATE = fromJS({
+const INITIAL_STATE = {
   loggedIn: false,
-});
+};
 
 export default function userReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
@@ -16,7 +15,7 @@ export default function userReducer(state = INITIAL_STATE, action) {
         return INITIAL_STATE;
       }
 
-      return fromJS(user);
+      return user;
     }
     default: {
       return state;

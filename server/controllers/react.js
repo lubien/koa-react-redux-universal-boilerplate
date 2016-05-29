@@ -8,6 +8,7 @@ exports.index = async function reactAction(ctx) {
     if (err.code && err.msg) {
       ctx.throw(err.code, err.msg);
     } else {
+      console.log('err', err);
       ctx.throw(404, "Page doesn't exist");
     }
   });

@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ImmutablePropTypes from 'react-immutable-proptypes';
 
 import { connect } from 'react-redux';
 
@@ -20,11 +19,11 @@ const App = ({ children, user }) => (
 
 App.propTypes = {
   children: PropTypes.node.isRequired,
-  user: ImmutablePropTypes.map.isRequired,
+  user: PropTypes.object.isRequired,
 };
 
 export default connect(
   state => ({
-    user: state.get('user'),
+    user: state.user,
   })
 )(App);
