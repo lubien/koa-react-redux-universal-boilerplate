@@ -3,7 +3,6 @@ import 'isomorphic-fetch';
 let baseUrl = '';
 
 if (!process.env.isClient) {
-  console.log('server');
   const { BASE_URL } = require('../../server/config/'); // eslint-disable-line
   baseUrl = BASE_URL;
 }
