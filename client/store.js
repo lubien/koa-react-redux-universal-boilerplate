@@ -3,10 +3,12 @@ import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 
 import auth from './reducers/auth';
+import users from './reducers/users';
 import { routerReducer as routing } from 'react-router-redux';
 
 const reducers = combineReducers({
   auth,
+  users,
   routing,
 });
 
