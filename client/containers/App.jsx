@@ -11,9 +11,7 @@ const App = ({ children, auth }) => (
       titleTemplate="%s - Koa React Boilerplate"
     />
     <Navbar auth={auth} />
-    <div className="container">
-      {children}
-    </div>
+    {children}
   </div>
 );
 
