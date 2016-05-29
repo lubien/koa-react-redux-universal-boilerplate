@@ -11,6 +11,7 @@ At first was just a simple boilerplate for my next projects on [FreeCodeCamp](ht
 * React.
 * React Router
 * Universal rendering.
+* Redux Devtools
 * Dirty deeds done dirt cheap.
 
 ## Getting Started
@@ -27,11 +28,15 @@ Dev-server uses `nodemon` to restart the server everytime you change some server
 
 Now you can open `http://localhost:3000/`.
 
+For a better experience, use [zalmoxisus/redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension#implementation) so you can see Redux's current state.
+
 ### Production
 
 We are using `babel-node` and `webpack-dev-server` for development, but they are a no go for production. The solution was simple: build everything. We build our server into a `build/` folder and our client to `public/scripts/bundle.js`.
 
 The build is made right after `npm install` so, let's say you use a PaaS like Heroku. After each commit the system will be rebuilt. Awesome ;)
+
+Two important env vars you should look are `BASE_URL` and `SUPPORT_HTTPS`. `BASE_URL` uses the model `https://example.com` (no stripe at end). Why? Github auth callback needs your URL match exactly in both your server and in your app Github's config. `SUPPORT_HTTPS` is a bool value.
 
 ## License
 
