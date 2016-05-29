@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import userReducer from './reducers/user';
+import user from './reducers/user';
 
 let initialState = {};
 
@@ -10,7 +10,7 @@ if (typeof window !== 'undefined' && window.__STORE__) { // eslint-disable-line
 }
 
 const store = createStore(combineReducers({
-  user: userReducer,
+  user,
 }),
   initialState,
   applyMiddleware(thunkMiddleware)
