@@ -3,7 +3,7 @@ import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
 import {
   loadingBarReducer as loadingBar,
-  loadingBarMiddleware
+  loadingBarMiddleware,
 } from 'react-redux-loading-bar';
 
 import auth from './reducers/auth';
