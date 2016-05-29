@@ -4,7 +4,7 @@ import Helmet from 'react-helmet';
 import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../../client/store';
-import routes from '../../client/routes';
+import routes from '../../client/routes/index';
 
 import { SET_LOGGED_IN_USER } from '../../client/reducers/auth';
 

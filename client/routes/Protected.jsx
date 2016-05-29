@@ -12,3 +12,11 @@ const ProtectedPage = () => (
 );
 
 export default ProtectedPage;
+
+import isLoggedIn from '../lib/is-logged-in';
+
+export const route = {
+  path: 'protected',
+  component: ProtectedPage,
+  onEnter: isLoggedIn,
+};
