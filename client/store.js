@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
+import promiseMiddleware from 'redux-promise-middleware';
 
 import auth from './reducers/auth';
 import { routerReducer as routing } from 'react-router-redux';
@@ -11,7 +12,7 @@ const reducers = combineReducers({
 
 let initialState = {};
 
-const middleWares = [thunkMiddleware];
+const middleWares = [thunkMiddleware, promiseMiddleware()];
 const composables = [
   applyMiddleware(...middleWares),
 ];
