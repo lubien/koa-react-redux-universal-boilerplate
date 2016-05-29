@@ -51,20 +51,17 @@ const mapStateToProps = state => ({
   list: state.users.list,
 });
 
-export default connect(mapStateToProps)(UsersList);
+const BoundUsersList = connect(mapStateToProps)(UsersList);
 
-import store from '../../store';
-import { setUsersList } from '../../reducers/users';
-import api from '../../lib/api';
-import passProps from '../../lib/pass-props';
+export default BoundUsersList;
+
+import { loadAllUsers } from '../../reducers/users';
+import prepareForComponent from '../../lib/prepare-for-component';
 
 export const route = {
   path: 'list',
-  getComponent: (nextState, callback) => {
-    api.users.all()
-      .then(list => {
-        store.dispatch(setUsersList(list));
-        callback(null, passProps(UsersList, { list }));
-      });
-  },
+  getComponent: prepareForComponent((_, dispatch, callback) => {
+    dispatch(loadAllUsers())
+      .then(__ => callback(null, BoundUsersList)); // eslint-disable-line
+  }),
 };
