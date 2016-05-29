@@ -1,6 +1,10 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import promiseMiddleware from 'redux-promise-middleware';
+import {
+  loadingBarReducer as loadingBar,
+  loadingBarMiddleware
+} from 'react-redux-loading-bar';
 
 import auth from './reducers/auth';
 import users from './reducers/users';
@@ -10,11 +14,12 @@ const reducers = combineReducers({
   auth,
   users,
   routing,
+  loadingBar,
 });
 
 let initialState = {};
 
-const middleWares = [thunkMiddleware, promiseMiddleware()];
+const middleWares = [thunkMiddleware, promiseMiddleware(), loadingBarMiddleware()];
 const composables = [
   applyMiddleware(...middleWares),
 ];

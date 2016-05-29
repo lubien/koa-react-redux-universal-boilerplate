@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 
 import Helmet from 'react-helmet';
 import Navbar from '../components/Navbar';
+import Loading from 'react-redux-loading-bar';
 
 const App = ({ children, auth }) => (
   <div>
+    <Loading style={{ backgroundColor: '#2c3e50' }} />
     <Helmet
       titleTemplate="%s - Koa React Boilerplate"
     />
