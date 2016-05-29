@@ -10,7 +10,6 @@ const initialState = {
 export default function usersReducer(state = initialState, action = {}) {
   switch (action.type) {
     case `${LOAD_ALL_USERS}_FULFILLED`: {
-      console.log('here', action);
       return {
         ...state,
         list: action.payload,
