@@ -38,40 +38,46 @@ const Navbar = ({ auth }) => {
   }
 
   return (
-    <nav className="nav">
-      <div className="nav-left">
-        <span className="nav-item" style={{ fontWeight: 'bolder' }}>
-          Koa React Boilerplate
-        </span>
-      </div>
+    <section className="hero is-info  is-bold">
+      <div className="hero-head">
+        <div className="container is-fluid">
+          <nav className="nav">
+            <div className="nav-left">
+              <span className="nav-item" style={{ fontWeight: 'bolder' }}>
+                Koa React Boilerplate
+              </span>
+            </div>
 
-      <div className="nav-center">
-        <a className="nav-item" href="https://github.com/lubien/koa-react-boilerplate" target="_blank">
-          <span className="icon">
-            <i className="fa fa-github"></i>
-          </span>
-        </a>
-        <a className="nav-item" href="https://twitter.com/@joao_lubien" target="_blank">
-          <span className="icon">
-            <i className="fa fa-twitter"></i>
-          </span>
-        </a>
-      </div>
+            <div className="nav-center">
+              <a className="nav-item" href="https://github.com/lubien/koa-react-boilerplate" target="_blank">
+                <span className="icon">
+                  <i className="fa fa-github"></i>
+                </span>
+              </a>
+              <a className="nav-item" href="https://twitter.com/@joao_lubien" target="_blank">
+                <span className="icon">
+                  <i className="fa fa-twitter"></i>
+                </span>
+              </a>
+            </div>
 
-      <span className="nav-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </span>
+            <span className="nav-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
 
-      <div className="nav-right nav-menu">
-        {rightNavItems.map((el, key) => (
-          <span className="nav-item" key={key}>
-            {el}
-          </span>
-        ))}
+            <div className="nav-right nav-menu">
+              {rightNavItems.map((el, key) => (
+                <span className="nav-item" key={key}>
+                  {el}
+                </span>
+              ))}
+            </div>
+          </nav>
+        </div>
       </div>
-    </nav>
+    </section>
   );
 };
 
