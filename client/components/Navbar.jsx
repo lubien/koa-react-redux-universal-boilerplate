@@ -49,7 +49,7 @@ const Navbar = ({ auth }) => {
             </div>
 
             <div className="nav-center">
-              <a className="nav-item" href="https://github.com/lubien/koa-react-boilerplate" target="_blank">
+              <a className="nav-item" href="https://github.com/lubien/koa-react-redux-universal-boilerplate" target="_blank">
                 <span className="icon">
                   <i className="fa fa-github"></i>
                 </span>

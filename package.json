@@ -23,10 +23,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lubien/koa-react-boilerplate.git"
+    "url": "https://github.com/lubien/koa-react-redux-universal-boilerplate.git"
   },
   "bugs": {
-    "url": "https://github.com/lubien/koa-react-boilerplate/issues"
+    "url": "https://github.com/lubien/koa-react-redux-universal-boilerplate/issues"
   },
   "engines": {
     "node": "6.1.0"
