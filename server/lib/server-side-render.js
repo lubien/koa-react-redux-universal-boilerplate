@@ -16,7 +16,7 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
       if (err) reject(err);
       else if (!renderProps) {
         reject({ code: 404, msg: "Page doesn't exist" });
-      } else if (renderProps.location.pathname === '/401') {
+      } else if (renderProps.location.pathname === '/error/401') {
         reject({ code: 401, msg: 'Unauthorized' });
       } else {
         store.dispatch({

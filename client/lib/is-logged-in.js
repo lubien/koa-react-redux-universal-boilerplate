@@ -3,7 +3,7 @@ import store from '../store';
 
 function isLoggedIn(nextState, replace) { //eslint-disable-line
   if (!store.getState().auth.loggedIn) {
-    return replace('/401');
+    return replace('/error/401');
   }
 }
 
