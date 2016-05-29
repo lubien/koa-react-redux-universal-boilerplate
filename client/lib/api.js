@@ -12,6 +12,7 @@ const api = {};
 
 api.users = {
   loggedIn() { return retreive('/users/logged-in'); },
+  all() { return retreive('/users/all'); },
 };
 
 export default api;
