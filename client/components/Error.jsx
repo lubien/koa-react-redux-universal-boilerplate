@@ -7,8 +7,18 @@ const Error = ({ code, reason }) => (
     <Helmet
       title={`Error ${code}`}
     />
-    <h1>Error {code}.</h1>
-    <h4>{reason}</h4>
+    <section className="hero is-fullheight is-danger is-bold">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">
+            Error {code}
+          </h1>
+          <h2 className="subtitle">
+            {reason}
+          </h2>
+        </div>
+      </div>
+    </section>
   </div>
 );
 
