@@ -1,12 +1,12 @@
 import api from '../lib/api';
 
-export const SET_LOGGED_IN_USER = 'app/user/SET_LOGGED_IN_USER';
+export const SET_LOGGED_IN_USER = 'app/auth/SET_LOGGED_IN_USER';
 
 const INITIAL_STATE = {
   loggedIn: false,
 };
 
-export default function userReducer(state = INITIAL_STATE, action) {
+export default function authReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
     case SET_LOGGED_IN_USER: {
       const { user } = action;

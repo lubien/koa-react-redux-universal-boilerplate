@@ -5,12 +5,12 @@ import { connect } from 'react-redux';
 import Helmet from 'react-helmet';
 import Navbar from '../components/Navbar';
 
-const App = ({ children, user }) => (
+const App = ({ children, auth }) => (
   <div>
     <Helmet
       titleTemplate="%s - Koa React Boilerplate"
     />
-    <Navbar user={user} />
+    <Navbar auth={auth} />
     <div className="container">
       {children}
     </div>
@@ -19,11 +19,11 @@ const App = ({ children, user }) => (
 
 App.propTypes = {
   children: PropTypes.node.isRequired,
-  user: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 export default connect(
   state => ({
-    user: state.user,
+    auth: state.auth,
   })
 )(App);

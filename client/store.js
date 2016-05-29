@@ -1,11 +1,11 @@
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
-import user from './reducers/user';
+import auth from './reducers/auth';
 import { routerReducer as routing } from 'react-router-redux';
 
 const reducers = combineReducers({
-  user,
+  auth,
   routing,
 });
 

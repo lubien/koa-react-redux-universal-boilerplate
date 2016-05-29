@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import { Link } from 'react-router';
 
-const Navbar = ({ user }) => {
+const Navbar = ({ auth }) => {
   const rightNavItems = [(
     <Link to="/">
       Home
@@ -17,7 +17,7 @@ const Navbar = ({ user }) => {
     </Link>
   )];
 
-  if (!user.loggedIn) {
+  if (!auth.loggedIn) {
     rightNavItems.push((
       <a className="button" href="/login">
         <span className="icon">
@@ -28,7 +28,7 @@ const Navbar = ({ user }) => {
     ));
   } else {
     rightNavItems.push((
-      <span>Hello, {user.username}</span>
+      <span>Hello, {auth.username}</span>
     ));
     rightNavItems.push((
       <a className="button" href="/logout">
@@ -76,7 +76,7 @@ const Navbar = ({ user }) => {
 };
 
 Navbar.propTypes = {
-  user: PropTypes.object.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 export default Navbar;
