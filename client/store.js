@@ -25,9 +25,9 @@ if (typeof window !== 'undefined' && window.__STORE__) { // eslint-disable-line
   if (process && process.env && process.env.NODE_ENV !== 'production') {
     // zalmoxisus/redux-devtools-extension
     // https://github.com/zalmoxisus/redux-devtools-extension#implementation
-    composables.push(
-      window.devToolsExtension ? window.devToolsExtension() : f => f
-    );
+    if (window.devToolsExtension) {
+      composables.push(window.devToolsExtension());
+    }
   }
 }
 
