@@ -1,9 +1,9 @@
 import React from 'react';
 
-import Error from '../../components/Error';
+import ErrorTemplate from './ErrorTemplate';
 
 const Error401 = () => (
-  <Error code={401} reason="Must be logged in" />
+  <ErrorTemplate code={401} reason="Must be logged in" />
 );
 
 export default Error401;

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 
 import Helmet from 'react-helmet';
 
-const Error = ({ code, reason }) => (
+const ErrorTemplate = ({ code, reason }) => (
   <div>
     <Helmet
       title={`Error ${code}`}
@@ -22,9 +22,9 @@ const Error = ({ code, reason }) => (
   </div>
 );
 
-Error.propTypes = {
+ErrorTemplate.propTypes = {
   code: PropTypes.number.isRequired,
   reason: PropTypes.string.isRequired,
 };
 
-export default Error;
+export default ErrorTemplate;
