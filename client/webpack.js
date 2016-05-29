@@ -2,6 +2,8 @@ const webpack = require('webpack');
 const path = require('path');
 const config = require('../server/config');
 
+let devtool = 'eval';
+
 const entry = [
   path.join(__dirname, './entry.js'),
 ];
@@ -14,6 +16,8 @@ const output = {
 const plugins = [];
 
 if (config.is.dev) {
+  devtool = 'source-map';
+
   entry.unshift('webpack/hot/only-dev-server');
   entry.unshift(`webpack-dev-server/client?${config.WEBPACK_BASE_URL}/`);
 
@@ -34,7 +38,7 @@ if (config.is.prod) {
 }
 
 module.exports = {
-  entry, plugins, output,
+  devtool, entry, plugins, output,
   module: {
     loaders: [
       {
