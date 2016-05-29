@@ -1,7 +1,8 @@
 import api from '../lib/api';
 
 const LOAD_ALL_USERS = 'app/users/LOAD_ALL_USERS';
-const SET_USERS_LIST = 'app/users/SET_USERS_LIST';
+const LOAD_ALL_USERS_FULFILLED = 'app/users/LOAD_ALL_USERS_FULFILLED';
+const CLEAR_ALL_USERS = 'app/users/CLEAR_ALL_USERS';
 
 const initialState = {
   list: [],
@@ -9,10 +10,16 @@ const initialState = {
 
 export default function usersReducer(state = initialState, action = {}) {
   switch (action.type) {
-    case `${LOAD_ALL_USERS}_FULFILLED`: {
+    case LOAD_ALL_USERS_FULFILLED: {
       return {
         ...state,
         list: action.payload,
+      };
+    }
+    case CLEAR_ALL_USERS: {
+      return {
+        ...state,
+        list: [],
       };
     }
     default: {
@@ -28,9 +35,8 @@ export function loadAllUsers() {
   };
 }
 
-export function setUsersList(list = []) {
+export function clearAllUsers() {
   return {
-    type: SET_USERS_LIST,
-    payload: list,
+    type: CLEAR_ALL_USERS,
   };
 }
