@@ -24,6 +24,9 @@ if (config.is.dev) {
   output.publicPath = `${config.WEBPACK_BASE_URL}/`;
 
   plugins.push(new webpack.HotModuleReplacementPlugin());
+  plugins.push(new webpack.DefinePlugin({
+    'process.env.isClient': 'true',
+  }));
 }
 
 if (config.is.prod) {
@@ -34,6 +37,7 @@ if (config.is.prod) {
   }));
   plugins.push(new webpack.DefinePlugin({
     'process.env.NODE_ENV': '"production"',
+    'process.env.isClient': 'true',
   }));
 }
 
