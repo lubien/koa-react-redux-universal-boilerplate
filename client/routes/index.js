@@ -4,6 +4,7 @@ import { route as indexRoute } from './Index';
 import { route as aboutRoute } from './About';
 import { route as protectedRoute } from './Protected';
 
+import usersRoutes from './users/';
 import errorRoutes from './error/';
 
 const routes = {
@@ -11,6 +12,7 @@ const routes = {
   childRoutes: [
     aboutRoute,
     protectedRoute,
+    usersRoutes,
     errorRoutes,
   ],
 };

@@ -12,6 +12,10 @@ const Navbar = ({ auth }) => {
       About
     </Link>
   ), (
+    <Link to="/users/list">
+      Users
+    </Link>
+  ), (
     <Link to="/protected">
       Protected
     </Link>
