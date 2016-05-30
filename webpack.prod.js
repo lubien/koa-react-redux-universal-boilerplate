@@ -1,11 +1,21 @@
 const webpack = require('webpack');
+const AssetsWebpackPlugin = require('assets-webpack-plugin');
 const path = require('path');
+const pkg = require('./package.json');
+
+const vendors = Object.keys(pkg.dependencies)
+  .filter(el => /(react|redux)/.test(el) && el.indexOf('babel') === -1);
+
+const CHUNK_FILE_NAME = '[name].[chunkhash].js';
 
 module.exports = {
-  entry: path.join(__dirname, './client/entry.js'),
+  entry: {
+    app: path.join(__dirname, './client/entry.js'),
+    vendor: vendors,
+  },
   output: {
     path: path.join(__dirname, './public/scripts/'),
-    filename: 'bundle.js',
+    filename: CHUNK_FILE_NAME,
   },
   module: {
     loaders: [
@@ -38,6 +48,10 @@ module.exports = {
       'process.env.NODE_ENV': '"production"',
       'process.env.isClient': 'true',
     }),
-    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
+    new webpack.optimize.CommonsChunkPlugin('vendor', CHUNK_FILE_NAME),
+    new AssetsWebpackPlugin({
+      filename: 'webpack.assets.json',
+      path: __dirname,
+    }),
   ],
 };

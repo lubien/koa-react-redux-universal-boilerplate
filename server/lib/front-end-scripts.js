@@ -1,10 +1,14 @@
 import config from '../config/';
 
 export default function bundleScriptsPath() {
-  return config.is.dev ? [
-    `${config.WEBPACK_BASE_URL}/bundle.js`,
-  ] : [
-    '/public/scripts/vendor.bundle.js',
-    '/public/scripts/bundle.js',
+  if (config.is.dev) {
+    return [
+      `${config.WEBPACK_BASE_URL}/bundle.js`,
+    ];
+  }
+  const { app, vendor } = require('../../webpack.assets.json'); // eslint-disable-line
+  return [
+    `/public/scripts/${vendor.js}`,
+    `/public/scripts/${app.js}`,
   ];
 }

@@ -1,5 +1,6 @@
 node_modules/
 .env
-public/scripts/bundle.js
-public/scripts/vendor.bundle.js
+public/scripts/app.*.js
+public/scripts/vendor.*.js
 build/
+webpack.assets.json
