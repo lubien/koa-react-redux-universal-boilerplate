@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
-import { loadAllUsers, clearAllUsers } from '../../reducers/users';
+import { loadAllUsers, clearAllUsers } from 'reducers/users';
 
 class UsersList extends Component {
   componentWillUnmount() {

@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import Helmet from 'react-helmet';
-import Navbar from '../components/Navbar';
+import Navbar from 'components/Navbar';
 import Loading from 'react-redux-loading-bar';
 
 const App = ({ children, auth }) => (
