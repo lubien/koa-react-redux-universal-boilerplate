@@ -9,7 +9,7 @@ module.exports = {
     path.join(__dirname, './client/entry.js'),
   ],
   output: {
-    path: path.join(__dirname, '../public/scripts/'),
+    path: path.join(__dirname, './public/scripts/'),
     filename: 'bundle.js',
     publicPath: `${config.WEBPACK_BASE_URL}/`,
   },
