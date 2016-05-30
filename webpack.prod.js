@@ -38,5 +38,6 @@ module.exports = {
       'process.env.NODE_ENV': '"production"',
       'process.env.isClient': 'true',
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
   ],
 };

@@ -40,5 +40,6 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env.isClient': 'true',
     }),
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js'),
   ],
 };
