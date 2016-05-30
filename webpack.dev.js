@@ -22,9 +22,10 @@ module.exports = {
         query: {
           presets: ['react', 'es2015'],
           compact: false,
-          plugins: [['resolver', {
-            resolveDirs: ['./client'],
-          }]],
+          plugins: [['module-alias', [
+            { src: 'client/components', expose: 'components' },
+            { src: 'client/reducers', expose: 'reducers' },
+          ]]],
         },
       },
     ],
