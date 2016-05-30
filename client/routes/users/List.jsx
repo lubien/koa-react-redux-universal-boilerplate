@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
+import HeroTitle from 'components/HeroTitle';
+
 import { loadAllUsers, clearAllUsers } from 'reducers/users';
 
 class UsersList extends Component {
@@ -13,15 +15,10 @@ class UsersList extends Component {
 
     return (
       <div>
-        <section className="hero is-medium is-primary is-bold">
-          <div className="hero-body">
-            <div className="container">
-              <h1 className="title">
-                User list
-              </h1>
-            </div>
-          </div>
-        </section>
+        <HeroTitle
+          title="User's list"
+          classes="is-medium is-primary is-bold"
+        />
         <section className="section is-medium">
           <div className="container">
             <div className="columns is-multiline is-desktop is-mobile">

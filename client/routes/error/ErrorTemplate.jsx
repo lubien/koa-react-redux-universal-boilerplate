@@ -1,24 +1,18 @@
 import React, { PropTypes } from 'react';
 
 import Helmet from 'react-helmet';
+import HeroTitle from 'components/HeroTitle';
 
 const ErrorTemplate = ({ code, reason }) => (
   <div>
     <Helmet
       title={`Error ${code}`}
     />
-    <section className="hero is-fullheight is-danger is-bold">
-      <div className="hero-body">
-        <div className="container">
-          <h1 className="title">
-            Error {code}
-          </h1>
-          <h2 className="subtitle">
-            {reason}
-          </h2>
-        </div>
-      </div>
-    </section>
+    <HeroTitle
+      title={`Error ${code}`}
+      subtitle={reason}
+      classes="is-fullheight is-danger is-bold"
+    />
   </div>
 );
 
