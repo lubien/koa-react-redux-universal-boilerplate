@@ -13,7 +13,7 @@ const ProtectedPage = () => (
 
 export default ProtectedPage;
 
-import isLoggedIn from '../lib/is-logged-in';
+import isLoggedIn from 'utils/is-logged-in';
 
 export const route = {
   path: 'protected',

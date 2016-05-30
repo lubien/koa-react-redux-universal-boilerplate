@@ -72,7 +72,7 @@ const BoundUsersList = connect(mapStateToProps, mapDispatchToProps)(UsersList);
 
 export default BoundUsersList;
 
-import prepareForComponent from '../../lib/prepare-for-component';
+import prepareForComponent from 'utils/prepare-for-component';
 
 export const route = {
   path: 'list',

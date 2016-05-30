@@ -1,4 +1,4 @@
-import api from '../lib/api';
+import api from 'utils/api';
 
 const LOAD_ALL_USERS = 'app/users/LOAD_ALL_USERS';
 const LOAD_ALL_USERS_FULFILLED = 'app/users/LOAD_ALL_USERS_FULFILLED';

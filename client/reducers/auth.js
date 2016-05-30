@@ -1,4 +1,4 @@
-import api from '../lib/api';
+import api from 'utils/api';
 
 export const SET_LOGGED_IN_USER = 'app/auth/SET_LOGGED_IN_USER';
 
