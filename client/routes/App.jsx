@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import { connect } from 'react-redux';
+import { getLoggedInUser } from 'reducers/auth';
 
 import Helmet from 'react-helmet';
 import Navbar from 'components/Navbar';
@@ -22,8 +23,12 @@ App.propTypes = {
   auth: PropTypes.object.isRequired,
 };
 
-export default connect(
+import reduxServerRequire from 'utils/redux-server-require';
+
+export default reduxServerRequire(
+  [getLoggedInUser],
+)(connect(
   state => ({
     auth: state.auth,
   })
-)(App);
+)(App));

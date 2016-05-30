@@ -65,16 +65,15 @@ const mapDispatchToProps = dispatch => ({
   clearAllUsers: () => dispatch(clearAllUsers()),
 });
 
-const BoundUsersList = connect(mapStateToProps, mapDispatchToProps)(UsersList);
+import reduxServerRequire from 'utils/redux-server-require';
+
+const BoundUsersList = reduxServerRequire([loadAllUsers])(
+  connect(mapStateToProps, mapDispatchToProps)(UsersList)
+);
 
 export default BoundUsersList;
 
-import prepareForComponent from 'utils/prepare-for-component';
-
 export const route = {
   path: 'list',
-  getComponent: prepareForComponent((_, dispatch, callback) => {
-    dispatch(loadAllUsers())
-      .then(__ => callback(null, BoundUsersList)); // eslint-disable-line
-  }),
+  components: BoundUsersList,
 };

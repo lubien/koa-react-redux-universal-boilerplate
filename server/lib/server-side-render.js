@@ -5,6 +5,7 @@ import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../../client/store';
 import routes from '../../client/routes/index';
+// import sequence from 'promise-sequence';
 
 import { SET_LOGGED_IN_USER } from '../../client/reducers/auth';
 
@@ -12,17 +13,21 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
   return new Promise((fulfill, reject) => {
     match({
       routes, location: url,
-    }, (err, redirectLocation, renderProps) => {
+    }, async function serverSideMatchCallback(err, redirectLocation, renderProps) {
       if (err) reject(err);
       else if (!renderProps) {
         reject({ code: 404, msg: "Page doesn't exist" });
       } else if (renderProps.location.pathname === '/error/401') {
         reject({ code: 401, msg: 'Unauthorized' });
       } else {
-        store.dispatch({
-          type: SET_LOGGED_IN_USER,
-          user,
-        });
+        const actions = renderProps.components
+          .filter(component => component && component.requiredActions)
+          .map(component => component.requiredActions)
+          .reduce((a, b) => a.concat(b), []);
+
+        for (const action of actions) {
+          await store.dispatch(action());
+        }
 
         const rendered = ReactDOM.renderToString(
           <Provider store={store}>
