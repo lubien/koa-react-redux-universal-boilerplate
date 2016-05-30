@@ -7,10 +7,10 @@
     "start": "cross-env NODE_ENV=production node ./build/app.js",
     "postinstall": "npm run build",
     "dev-server": "nodemon -e js,pug,json,jsx --watch client --watch server --exec cross-env NODE_ENV=development babel-node server/app.js",
-    "dev-client": "webpack-dev-server --config ./client/webpack.js --progress --colors --inline",
+    "dev-client": "webpack-dev-server --config ./webpack.dev.js --progress --colors --inline",
     "build": "npm run clean-build && npm run build-server && npm run build-client",
     "build-server": "cross-env NODE_ENV=production babel server --out-dir build",
-    "build-client": "cross-env NODE_ENV=production webpack --config ./client/webpack.js",
+    "build-client": "cross-env NODE_ENV=production webpack --config ./webpack.prod.js",
     "clean-build": "trash build/ && mkdir build && ncp ./server/views/ ./build/views/",
     "lint": "eslint ./server/app.js"
   },
