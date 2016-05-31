@@ -4,7 +4,7 @@
   "description": "A fullstack Koa + React + Redux Universal Boilerplate to speed up your development process.",
   "main": "server/app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node ./build/app.js",
+    "start": "cross-env NODE_ENV=production node ./build/main.js",
     "postinstall": "npm run build",
     "dev": "cross-env NODE_ENV=development nodemon server/main.js -e js,pug,json,jsx --watch server",
     "build": "npm run clean-build && npm run build-server && npm run build-client",
