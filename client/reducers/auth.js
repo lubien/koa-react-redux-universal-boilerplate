@@ -1,6 +1,7 @@
 import api from 'utils/api';
 
-export const SET_LOGGED_IN_USER = 'app/auth/SET_LOGGED_IN_USER';
+const GET_LOGGED_IN_USER = 'app/auth/GET_LOGGED_IN_USER';
+const GET_LOGGED_IN_USER_FULFILLED = 'app/auth/GET_LOGGED_IN_USER_FULFILLED';
 
 const INITIAL_STATE = {
   loggedIn: false,
@@ -8,8 +9,8 @@ const INITIAL_STATE = {
 
 export default function authReducer(state = INITIAL_STATE, action) {
   switch (action.type) {
-    case SET_LOGGED_IN_USER: {
-      const { user } = action;
+    case GET_LOGGED_IN_USER_FULFILLED: {
+      const user = action.payload;
 
       if (!user.loggedIn) {
         return INITIAL_STATE;
@@ -24,11 +25,8 @@ export default function authReducer(state = INITIAL_STATE, action) {
 }
 
 export function getLoggedInUser() {
-  return function fetchUserThunk(dispatch) {
-    api.users.loggedIn()
-      .then(user => dispatch({
-        type: SET_LOGGED_IN_USER,
-        user,
-      }));
+  return {
+    type: GET_LOGGED_IN_USER,
+    payload: api.users.loggedIn(),
   };
 }
