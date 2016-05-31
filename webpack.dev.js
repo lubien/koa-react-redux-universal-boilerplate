@@ -7,7 +7,7 @@ module.exports = {
     'react-hot-loader/patch',
     `webpack-dev-server/client?${config.WEBPACK_BASE_URL}/`,
     'webpack/hot/only-dev-server',
-    path.join(__dirname, './client/entry.js'),
+    path.join(__dirname, './client/entry.dev.js'),
   ],
   output: {
     path: path.join(__dirname, './public/scripts/'),

@@ -10,7 +10,7 @@ const CHUNK_FILE_NAME = '[name].[chunkhash].js';
 
 module.exports = {
   entry: {
-    app: path.join(__dirname, './client/entry.js'),
+    app: path.join(__dirname, './client/entry.prod.js'),
     vendor: vendors,
   },
   output: {
