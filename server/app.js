@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import Koa from 'koa';
 const app = new Koa();
 import config from './config/';
