@@ -27,7 +27,6 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
           .map(component => component.requiredActions)
           .reduce((a, b) => a.concat(b), []);
 
-        for (const action of actions) {
         const actionsWithoutGetUser = actions.filter(func => func.name !== 'getLoggedInUser');
 
         for (const action of actionsWithoutGetUser) {
