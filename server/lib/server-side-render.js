@@ -5,9 +5,6 @@ import { match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
 import store from '../../client/store';
 import routes from '../../client/routes/index';
-// import sequence from 'promise-sequence';
-
-import { SET_LOGGED_IN_USER } from '../../client/reducers/auth';
 
 export default function serverSideRender(url, user = { loggedIn: false }) {
   return new Promise((fulfill, reject) => {
