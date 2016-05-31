@@ -7,6 +7,11 @@ import store from '../../client/store';
 import routes from '../../client/routes/index';
 
 export default function serverSideRender(url, user = { loggedIn: false }) {
+  store.dispatch({
+    type: 'app/auth/GET_LOGGED_IN_USER_FULFILLED',
+    payload: user,
+  });
+
   return new Promise((fulfill, reject) => {
     match({
       routes, location: url,
@@ -23,6 +28,9 @@ export default function serverSideRender(url, user = { loggedIn: false }) {
           .reduce((a, b) => a.concat(b), []);
 
         for (const action of actions) {
+        const actionsWithoutGetUser = actions.filter(func => func.name !== 'getLoggedInUser');
+
+        for (const action of actionsWithoutGetUser) {
           await store.dispatch(action());
         }
 
