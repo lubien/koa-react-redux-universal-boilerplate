@@ -1,15 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Router, browserHistory } from 'react-router';
-import { Provider } from 'react-redux';
+import { AppContainer } from 'react-hot-loader';
+import App from './App';
 import store from './store';
-import routes from './routes/index';
 
-if (!module || module && !module.parent) {
-  ReactDOM.render(
-    <Provider store={store}>
-      <Router history={browserHistory} routes={routes} />
-    </Provider>,
-    document.getElementById('app')
-  );
+ReactDOM.render(
+  <AppContainer>
+    <App store={store} />
+  </AppContainer>,
+  document.getElementById('app')
+);
+
+if (module.hot) {
+  module.hot.accept('./App', () => {
+    const NextApp = require('./App').default; // eslint-disable-line
+    ReactDOM.render(
+      <AppContainer>
+        <NextApp store={store} />
+      </AppContainer>,
+      document.getElementById('app')
+    );
+  });
 }

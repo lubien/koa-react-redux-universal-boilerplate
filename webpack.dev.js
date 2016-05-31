@@ -4,6 +4,7 @@ const config = require('./server/config');
 
 module.exports = {
   entry: [
+    'react-hot-loader/patch',
     `webpack-dev-server/client?${config.WEBPACK_BASE_URL}/`,
     'webpack/hot/only-dev-server',
     path.join(__dirname, './client/entry.js'),
@@ -19,6 +20,7 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
+        plugins: ['react-hot-loader/babel'],
       },
     ],
   },
