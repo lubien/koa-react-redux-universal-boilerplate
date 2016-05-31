@@ -59,3 +59,18 @@ app.context.db = db;
 app.listen(config.PORT, config.HOST, () => {
   console.log(`Server listening at ${config.HOST}:${config.PORT}`);
 });
+
+if (config.is.dev) {
+  // Webpack
+  const webpack = require('webpack'); // eslint-disable-line
+  const WebpackDevServer = require('webpack-dev-server'); // eslint-disable-line
+  const webpackConfig = require('../webpack.dev'); // eslint-disable-line
+  const webpackServer = new WebpackDevServer(webpack(webpackConfig), {
+    hot: true,
+    publicPath: webpackConfig.output.publicPath,
+    headers: { 'Access-Control-Allow-Origin': '*' },
+  });
+  webpackServer.listen(8080, config.HOST, () => {
+    console.log(`Webpack server listening at ${config.HOST}:8080`);
+  });
+}
