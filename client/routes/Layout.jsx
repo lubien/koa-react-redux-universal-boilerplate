@@ -7,7 +7,7 @@ import Helmet from 'react-helmet';
 import Navbar from 'components/Navbar';
 import Loading from 'react-redux-loading-bar';
 
-const App = ({ children, auth }) => (
+const Layout = ({ children, auth }) => (
   <div>
     <Loading style={{ backgroundColor: '#2c3e50' }} />
     <Helmet
@@ -18,7 +18,7 @@ const App = ({ children, auth }) => (
   </div>
 );
 
-App.propTypes = {
+Layout.propTypes = {
   children: PropTypes.node.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -31,4 +31,4 @@ export default reduxServerRequire(
   state => ({
     auth: state.auth,
   })
-)(App));
+)(Layout));

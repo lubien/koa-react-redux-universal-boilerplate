@@ -1,4 +1,4 @@
-import App from './App';
+import Layout from './Layout';
 
 // Middlewares
 import isLoggedIn from 'utils/is-logged-in';
@@ -18,7 +18,7 @@ import Error401 from './error/401';
 
 const routes = {
   path: '/',
-  component: App,
+  component: Layout,
   indexRoute: {
     component: IndexPage,
   },
