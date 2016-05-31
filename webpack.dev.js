@@ -19,15 +19,6 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: {
-          presets: ['react', 'es2015'],
-          compact: false,
-          plugins: [['module-alias', [
-            { src: 'client/components', expose: 'components' },
-            { src: 'client/reducers', expose: 'reducers' },
-            { src: 'client/utils', expose: 'utils' },
-          ]]],
-        },
       },
     ],
   },
