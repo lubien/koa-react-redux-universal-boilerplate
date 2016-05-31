@@ -12,8 +12,3 @@ const AboutPage = () => (
 );
 
 export default AboutPage;
-
-export const route = {
-  path: 'about',
-  component: AboutPage,
-};

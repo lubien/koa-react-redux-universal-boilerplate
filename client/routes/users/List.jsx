@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import reduxServerRequire from 'utils/redux-server-require';
 
 import HeroTitle from 'components/HeroTitle';
 
@@ -65,15 +66,6 @@ const mapDispatchToProps = dispatch => ({
   clearAllUsers: () => dispatch(clearAllUsers()),
 });
 
-import reduxServerRequire from 'utils/redux-server-require';
-
-const BoundUsersList = reduxServerRequire([loadAllUsers])(
+export default reduxServerRequire([loadAllUsers])(
   connect(mapStateToProps, mapDispatchToProps)(UsersList)
 );
-
-export default BoundUsersList;
-
-export const route = {
-  path: 'list',
-  components: BoundUsersList,
-};

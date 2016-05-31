@@ -1,19 +1,59 @@
 import App from './App';
 
-import { route as indexRoute } from './Index';
-import { route as aboutRoute } from './About';
-import { route as protectedRoute } from './Protected';
+// Middlewares
+import isLoggedIn from 'utils/is-logged-in';
 
-import usersRoutes from './users/';
-import errorRoutes from './error/';
+// Root Routes Components
+import IndexPage from './Index';
+import AboutPage from './About';
+import ProtectedPage from './Protected';
+
+// Users Routes Components
+
+import UsersList from './users/List';
+
+// Errors Routes Components
+
+import Error401 from './error/401';
 
 const routes = {
-  path: '/', component: App, indexRoute,
+  path: '/',
+  component: App,
+  indexRoute: {
+    component: IndexPage,
+  },
+
   childRoutes: [
-    aboutRoute,
-    protectedRoute,
-    usersRoutes,
-    errorRoutes,
+    {
+      path: 'about',
+      component: AboutPage,
+    }, {
+      path: 'protected',
+      component: ProtectedPage,
+      onEnter: isLoggedIn,
+    },
+
+    // Users Routes
+    {
+      path: 'users',
+      childRoutes: [
+        {
+          path: 'list',
+          components: UsersList,
+        },
+      ],
+    },
+
+    // Error Routes
+    {
+      path: 'error',
+      childRoutes: [
+        {
+          path: '401',
+          component: Error401,
+        },
+      ],
+    },
   ],
 };
 

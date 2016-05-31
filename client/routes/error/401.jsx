@@ -7,8 +7,3 @@ const Error401 = () => (
 );
 
 export default Error401;
-
-export const route = {
-  path: '401',
-  component: Error401,
-};

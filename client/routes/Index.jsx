@@ -12,7 +12,3 @@ const IndexPage = () => (
 );
 
 export default IndexPage;
-
-export const route = {
-  component: IndexPage,
-};
