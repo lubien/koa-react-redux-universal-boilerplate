@@ -62,7 +62,7 @@ if (config.is.dev) {
   // Webpack
   const webpack = require('webpack'); // eslint-disable-line
   const WebpackDevServer = require('webpack-dev-server'); // eslint-disable-line
-  const webpackConfig = require('../webpack.dev'); // eslint-disable-line
+  const webpackConfig = require('../webpack.dev.client'); // eslint-disable-line
   const webpackServer = new WebpackDevServer(webpack(webpackConfig), {
     hot: true,
     publicPath: webpackConfig.output.publicPath,
