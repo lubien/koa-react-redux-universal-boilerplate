@@ -11,14 +11,23 @@ if (config.is.prod) {
 }
 
 // General
+import compress from 'koa-compress';
 import bodyParser from 'koa-bodyparser';
-import serve from 'koa-static2';
+import conditional from 'koa-conditional-get';
+import etag from 'koa-etag';
+import mount from 'koa-mount';
+import serve from 'koa-static';
 import convert from 'koa-convert';
 import session from 'koa-generic-session';
 import MongoStore from 'koa-generic-session-mongo';
 
+app.use(compress());
 app.use(bodyParser());
-app.use(serve('public', path.join(__dirname, '../public')));
+app.use(conditional());
+app.use(etag());
+app.use(mount('/public', serve(path.join(__dirname, '../public'), {
+  maxage: config.is.prod ? 1000 * 60 * 60 * 24 * 7 : 0,
+})));
 app.keys = [config.SESSIONID];
 app.use(convert(session({
   store: new MongoStore({
