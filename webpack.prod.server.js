@@ -43,6 +43,7 @@ module.exports = {
         'require("source-map-support").install();',
         { raw: true, entryOnly: false }
     ),
+    new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
