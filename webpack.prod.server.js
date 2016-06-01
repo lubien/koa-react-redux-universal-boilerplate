@@ -9,8 +9,11 @@ module.exports = {
     __filename: true,
     __dirname: true,
   },
-  entry: path.join(__dirname, './server/app.js'),
   devtool: 'source-map',
+  entry: [
+    'babel-polyfill',
+    path.join(__dirname, './server/app.js')
+  ],
   output: {
     path: path.join(__dirname, './build/'),
     filename: 'app.js',
