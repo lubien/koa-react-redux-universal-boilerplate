@@ -1,12 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
-
-const vendors = fs.readdirSync(path.resolve(__dirname, './node_modules'))
-  .map((ext, mod) => {
-    ext[mod] = `commonjs ${mod}`;
-    return ext;
-  }, {});
+const ExternalsPlugin = require('webpack-externals-plugin');
 
 module.exports = {
   target: 'node',
@@ -16,7 +11,6 @@ module.exports = {
   },
   devtool: false,
   entry: path.join(__dirname, './server/app.js'),
-  externals: vendors,
   output: {
     path: path.join(__dirname, './build/'),
     filename: 'app.js',
@@ -38,6 +32,10 @@ module.exports = {
     extensions: ['', '.js', '.jsx'],
   },
   plugins: [
+    new ExternalsPlugin({
+      type: 'commonjs',
+      include: path.join(__dirname, './node_modules/'),
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
