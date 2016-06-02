@@ -11,5 +11,5 @@ export async function all(ctx) {
 }
 
 export function secret(ctx) {
-  ctx.body = 'I Must Not Tell Lies';
+  ctx.body = { message: 'I Must Not Tell Lies' };
 }
