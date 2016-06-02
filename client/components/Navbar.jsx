@@ -1,8 +1,10 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { toggleNavbar } from 'reducers/ui';
 
 import { Link } from 'react-router';
 
-const Navbar = ({ auth }) => {
+const Navbar = ({ auth, navbarOpen, toggleNav }) => {
   const rightNavItems = [(
     <Link to="/">
       Home
@@ -41,6 +43,11 @@ const Navbar = ({ auth }) => {
     ));
   }
 
+  let navRightClasses = 'nav-right nav-menu';
+  if (navbarOpen) {
+    navRightClasses += ' is-active';
+  }
+
   return (
     <section className="hero is-info  is-bold">
       <div className="hero-head">
@@ -65,13 +72,13 @@ const Navbar = ({ auth }) => {
               </a>
             </div>
 
-            <span className="nav-toggle">
+            <span className="nav-toggle" onClick={toggleNav}>
               <span></span>
               <span></span>
               <span></span>
             </span>
 
-            <div className="nav-right nav-menu">
+            <div className={navRightClasses}>
               {rightNavItems.map((el, key) => (
                 <span className="nav-item" key={key}>
                   {el}
@@ -87,6 +94,16 @@ const Navbar = ({ auth }) => {
 
 Navbar.propTypes = {
   auth: PropTypes.object.isRequired,
+  navbarOpen: PropTypes.bool.isRequired,
+  toggleNav: PropTypes.func.isRequired,
 };
 
-export default Navbar;
+const mapStateToProps = state => ({
+  navbarOpen: state.ui.navbar,
+});
+
+const mapDispatchToProps = dispatch => ({
+  toggleNav: () => dispatch(toggleNavbar()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

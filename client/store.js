@@ -6,11 +6,13 @@ import {
   loadingBarMiddleware,
 } from 'react-redux-loading-bar';
 
+import ui from './reducers/ui';
 import auth from './reducers/auth';
 import users from './reducers/users';
 import { routerReducer as routing } from 'react-router-redux';
 
 const reducers = combineReducers({
+  ui,
   auth,
   users,
   routing,
