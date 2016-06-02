@@ -17,7 +17,7 @@ class UsersList extends Component {
     return (
       <div>
         <HeroTitle
-          title="User's list"
+          title="Users list"
           classes="is-medium is-primary is-bold"
         />
         <section className="section is-medium">
