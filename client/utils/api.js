@@ -20,6 +20,7 @@ const api = {};
 api.users = {
   loggedIn() { return retreive('/users/logged-in'); },
   all() { return retreive('/users/all'); },
+  secret() { return retreive('/users/secret'); },
 };
 
 export default api;
