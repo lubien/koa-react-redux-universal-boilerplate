@@ -4,7 +4,7 @@ import Layout from './Layout';
 import isLoggedIn from 'utils/is-logged-in';
 
 // Root Routes Components
-import IndexPage from './Index';
+import HomePage from './Home';
 import AboutPage from './About';
 import ProtectedPage from './Protected';
 
@@ -20,7 +20,7 @@ const routes = {
   path: '/',
   component: Layout,
   indexRoute: {
-    component: IndexPage,
+    component: HomePage,
   },
 
   childRoutes: [

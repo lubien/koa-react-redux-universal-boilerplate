@@ -3,7 +3,7 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import HeroTitle from 'components/HeroTitle';
 
-const IndexPage = () => (
+const HomePage = () => (
   <div>
     <Helmet
       title="Index"
@@ -16,4 +16,4 @@ const IndexPage = () => (
   </div>
 );
 
-export default IndexPage;
+export default HomePage;
